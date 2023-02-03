@@ -7,7 +7,7 @@ function plot_hours(ax, musicPerHour, SETUP)
 
 HOURS = 24;
 HourForPlot = zeros(sum(musicPerHour),1);
-
+hold(ax,'on');
 for c=1:HOURS
     n = 1;
     for d=1:length(musicPerHour)
@@ -22,15 +22,14 @@ for c=1:HOURS
         end
     end
     Transparency = musicPerHour(c)/max(musicPerHour)*0.7;
-    plot(c) = polarhistogram(ax,HourForPlot(1:n-1),length(musicPerHour),...
-                             'FaceColor',"#0072BD",...
-                             'FaceAlpha',Transparency);
-    hold on;
+    polarhistogram(ax,HourForPlot(1:n-1),length(musicPerHour),...
+                   'FaceColor',"#0072BD",...
+                   'FaceAlpha',Transparency);
 end
 % General Settings of the plot
 
 % Direction and Orientation
-set(gca,'ThetaZeroLocation','top',...
+set(ax,'ThetaZeroLocation','top',...
         'ThetaDir','clockwise');
 % Axis theta
 angles = 0:360/24:360;
@@ -47,5 +46,5 @@ for c=1:length(ax.RTickLabel)
     ax.RTickLabel{c} = '';
 end
 
-title(SETUP.title);
+title(ax,SETUP.title);
 end

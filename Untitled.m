@@ -48,7 +48,6 @@ f.Position(3:4) = [700,400];
 ax = gca;
 plot_stems(ax, RESULTS.Music, SETUP);
 
-
 [url_fig, ~] = imread(MUSICS.track(1).music.image(4).x_text);
 figure()
 imshow(url_fig);
