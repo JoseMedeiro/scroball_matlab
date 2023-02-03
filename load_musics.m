@@ -1,6 +1,7 @@
 %% Loads Musics
 %
-% Recieves a .JSON file from the website ' ' with the data required
+% Recieves a .JSON file from the website 'https://lastfm.ghan.nl/export/' 
+% with the data required.
 %
 %%
 function MUSICS = load_musics(fileName)
